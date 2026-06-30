@@ -1,7 +1,7 @@
 from google.adk.agents import Agent
 from google.adk.tools.google_search_tool import GoogleSearchTool
-from instructions.competitor_instructions import COMPETITOR_INSTRUCTION
-from schemas.competitor_schema import CompetitorInput,CompetitorOutput
+from market_research_orchrestration.instructions.competitor_instructions import COMPETITOR_INSTRUCTION
+from market_research_orchrestration.schemas.competitor_schema import CompetitorInput,CompetitorOutput
 
 competitor_agent=Agent(
     name='competitor_agent',

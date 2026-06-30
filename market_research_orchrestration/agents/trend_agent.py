@@ -1,7 +1,7 @@
 from google.adk.agents import Agent
 from google.adk.tools.google_search_tool import GoogleSearchTool
-from instructions.trend_instructions import TREND_INSTRUCTION
-from schemas.trend_schema import TrendInput,TrendOutput
+from market_research_orchrestration.instructions.trend_instructions import TREND_INSTRUCTION
+from market_research_orchrestration.schemas.trend_schema import TrendInput,TrendOutput
 
 trend_agent=Agent(
     name='trend_agent',

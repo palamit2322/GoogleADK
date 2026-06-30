@@ -1,9 +1,10 @@
 from google.adk.agents import Agent
-from agents.market_agent import market_agent
-from agents.competitor_agent import competitor_agent
-from agents.trend_agent import trend_agent
-from agents.report_agent import report_agent
-from instructions.router_instructions import ROUTER_INSTRUCTION
+from market_research_orchrestration.agents.market_agent import market_agent
+from market_research_orchrestration.agents.competitor_agent import competitor_agent
+from market_research_orchrestration.agents.trend_agent import trend_agent
+from market_research_orchrestration.agents.report_agent import report_agent
+from market_research_orchrestration.instructions.router_instructions import ROUTER_INSTRUCTION
+
 
 
 

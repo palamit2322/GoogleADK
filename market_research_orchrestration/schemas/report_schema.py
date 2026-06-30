@@ -1,9 +1,9 @@
 from pydantic import BaseModel, Field
 from typing import List
 
-from schemas.market_schema import MarketOutput
-from schemas.competitor_schema import CompetitorOutput
-from schemas.trend_schema import TrendOutput
+from market_research_orchrestration.schemas.market_schema import MarketOutput
+from market_research_orchrestration.schemas.competitor_schema import CompetitorOutput
+from market_research_orchrestration.schemas.trend_schema import TrendOutput
 
 
 class ReportInput(BaseModel):
