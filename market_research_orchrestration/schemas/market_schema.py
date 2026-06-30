@@ -1,7 +1,7 @@
 from pydantic import BaseModel,Field
 
 class MarketInput(BaseModel):
-    topic:str=Field(description='Market to research ')
+    topic:str=Field(description='Market to research ', default='Global')
 
     country:str=Field(description='Target country')
 

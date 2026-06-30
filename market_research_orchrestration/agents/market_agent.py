@@ -1,5 +1,5 @@
 from google.adk.agents import Agent
-from google.adk.tools.google_search_tool import google_search
+from google.adk.tools.google_search_tool import GoogleSearchTool
 from instructions.market_instructions import MARKET_INSTRUCTION
 from schemas.market_schema import MarketInput,MarketOutput
 
@@ -15,5 +15,5 @@ market_agent=Agent(
     input_schema=MarketInput,
     output_schema=MarketOutput,
     output_key='market_agent_analysis',
-    tools=[google_search]
+    tools=[GoogleSearchTool]
 )
