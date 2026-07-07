@@ -3,7 +3,6 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_community.vectorstores import Chroma
 
-
 def file_loader(path):
     loader=DirectoryLoader(
         path,
@@ -25,3 +24,12 @@ def chunking_data(split_documents):
     return chunk_data
 chunk_data=chunking_data(extracted_docs)
 
+
+embeddings = GoogleGenerativeAIEmbeddings(model="models/text-embedding-004")
+
+vector_store=Chroma.from_documents(documents=chunk_data,embedding=embeddings,persist_directory="./chroma_db")
+
+retriever = vector_store.as_retriever(
+    search_kwargs={"k": 3}
+)
+    

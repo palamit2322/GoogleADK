@@ -43,10 +43,6 @@ async def main(query):
         user_id='amit001'
     )
 
-    # async for event in events:
-    #     if event.is_final_response():
-    #         final_response=event.content.parts[0].text
-    #         print("Agent response:", final_response)
     async for event in events:
         if event.is_final_response() and event.content:
             print(event.content.parts[0].text)
