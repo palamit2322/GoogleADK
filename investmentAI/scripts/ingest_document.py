@@ -1,8 +1,7 @@
 from investmentAI.rag.ingestion import IngestionPipeline
 
 pipeline = IngestionPipeline(
-    data_path="data/",
-    persist_directory="./chroma_db"
+    data_path="investmentAI/data",
+    persist_directory="investmentAI/chroma_db"
 )
-
 pipeline.ingest()

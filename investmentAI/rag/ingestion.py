@@ -2,7 +2,10 @@ from langchain_community.document_loaders import DirectoryLoader, PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_community.vectorstores import Chroma
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
 class IngestionPipeline:
 
@@ -11,7 +14,7 @@ class IngestionPipeline:
         self.persist_directory = persist_directory
 
         self.embeddings = GoogleGenerativeAIEmbeddings(
-            model="models/text-embedding-004"
+            model="gemini-embedding-001"
         )
 
     def load_documents(self):
