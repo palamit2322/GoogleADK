@@ -3,7 +3,6 @@ import asyncio
 from dotenv import load_dotenv
 load_dotenv()
 from investmentAI.router.router_agent import route_agent
-from investmentAI.utils.agent_runner import run_agent
 from investmentAI.services.session_service import create_session
 
 async def main(query):
