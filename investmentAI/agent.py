@@ -2,6 +2,11 @@ from google.adk.agents import LlmAgent,SequentialAgent
 from investmentAI.agents.intent_agent import intent_agent
 from investmentAI.instructions.root_agent_instruction import ROOT_AGENT_INSTRUCTION
 from investmentAI.agents.response_formatter_agent import response_formatter_agent
+from google.adk.agents import LlmAgent
+
+from investmentAI.agents.general_helper_agent import general_helper_agent
+from investmentAI.agents.investment.investment_agent import investment_agent
+from investmentAI.agents.out_of_scope_agent import out_of_scope_agent
 
 from google.adk.sessions import InMemorySessionService
 from google.adk.runners import Runner
