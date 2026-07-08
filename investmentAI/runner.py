@@ -14,7 +14,7 @@ async def main(query):
         query,
     )
 
-    print(response)
+    #print(response)
 
 if __name__ == "__main__":
     asyncio.run(

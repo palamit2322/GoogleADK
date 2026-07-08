@@ -7,7 +7,7 @@ embeddings = GoogleGenerativeAIEmbeddings(
 )
 
 vector_store = Chroma(
-    persist_directory="./chroma_db",
+    persist_directory="investmentAI/chroma_db",
     embedding_function=embeddings
 )
 

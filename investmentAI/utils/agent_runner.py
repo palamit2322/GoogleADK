@@ -1,6 +1,11 @@
 from google.adk.runners import Runner
 from google.genai import types
 
+from investmentAI.utils.logger import (
+    print_header,
+    print_block,
+)
+
 
 async def run_agent(
     agent,
@@ -32,10 +37,7 @@ async def run_agent(
 
     async for event in events:
 
-        # Debug
-        print("=" * 80)
-        print(event)
-
+        # Skip intermediate events
         if not event.is_final_response():
             continue
 
@@ -45,6 +47,16 @@ async def run_agent(
         if not event.content.parts:
             continue
 
-        response = event.content.parts[0].text
+        part = event.content.parts[0]
+
+        if not hasattr(part, "text") or not part.text:
+            continue
+
+        response = part.text.strip()
+
+    # Print only once after processing all events
+    if response:
+        print_header(agent.name.replace("_", " ").title())
+        print_block("Agent Output", response)
 
     return response
