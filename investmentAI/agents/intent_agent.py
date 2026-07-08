@@ -11,24 +11,9 @@ from investmentAI.callbacks.logging.logging_config import ExecutionLogger
 from investmentAI.instructions.intent_agent_instruction import INTENT_AGENT_INSTRUCTION
 execution_logger = ExecutionLogger()
 
-# intent_agent = LlmAgent(
-#     name="intent_agent",
-#     model="gemini-2.5-flash",
-#     instruction=INTENT_AGENT_INSTRUCTION,
-#     description="Detects the intent of the user query.",
-#     sub_agents=[
-#         investment_agent,
-#         general_helper_agent,
-#         out_of_scope_agent
-#     ]
-# )
 intent_agent = LlmAgent(
     name="intent_agent",
     model="gemini-2.5-flash",
     instruction=INTENT_AGENT_INSTRUCTION,
-    sub_agents=[
-        general_helper_agent,
-        investment_agent,
-        out_of_scope_agent,
-    ],
+    output_schema=IntentResult,
 )
