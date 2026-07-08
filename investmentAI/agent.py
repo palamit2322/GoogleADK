@@ -24,13 +24,12 @@ async def create_session():
 async def get_agent():
     root_agent = SequentialAgent(
     name="investment_root_agent",
-    model="gemini-2.5-flash",
     description="Investment Assistant",
-    instruction=ROOT_AGENT_INSTRUCTION,
     sub_agents=[
-        intent_agent,response_formatter_agent
+        intent_agent,
+        response_formatter_agent
     ]
-    )
+)
     return root_agent
 
 async def main(query):
@@ -67,12 +66,12 @@ if __name__=="__main__":
 #     ]
 # )
 
+
 root_agent = SequentialAgent(
     name="investment_root_agent",
-    model="gemini-2.5-flash",
     description="Investment Assistant",
-    instruction=ROOT_AGENT_INSTRUCTION,
     sub_agents=[
-        intent_agent,response_formatter_agent
+        intent_agent,
+        response_formatter_agent
     ]
 )
