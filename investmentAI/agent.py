@@ -1,6 +1,7 @@
-from google.adk.agents import LlmAgent
+from google.adk.agents import LlmAgent,SequentialAgent
 from investmentAI.agents.intent_agent import intent_agent
 from investmentAI.instructions.root_agent_instruction import ROOT_AGENT_INSTRUCTION
+from investmentAI.agents.response_formatter_agent import response_formatter_agent
 
 from google.adk.sessions import InMemorySessionService
 from google.adk.runners import Runner
@@ -21,13 +22,13 @@ async def create_session():
     return session_service
 
 async def get_agent():
-    root_agent=LlmAgent(
-    name="Basic_Agent",
+    root_agent = SequentialAgent(
+    name="investment_root_agent",
     model="gemini-2.5-flash",
-    description="Routes user requests to the appropriate agent.",
+    description="Investment Assistant",
     instruction=ROOT_AGENT_INSTRUCTION,
     sub_agents=[
-        intent_agent
+        intent_agent,response_formatter_agent
     ]
     )
     return root_agent
@@ -55,12 +56,23 @@ async def main(query):
 if __name__=="__main__":
     asyncio.run(main("What is the advantage of using mullti agent frameworks?"))
 
-root_agent = LlmAgent(
+
+# root_agent = LlmAgent(
+#     name="investment_root_agent",
+#     model="gemini-2.5-flash",
+#     description="Routes user requests to the appropriate agent.",
+#     instruction=ROOT_AGENT_INSTRUCTION,
+#     sub_agents=[
+#         intent_agent
+#     ]
+# )
+
+root_agent = SequentialAgent(
     name="investment_root_agent",
     model="gemini-2.5-flash",
-    description="Routes user requests to the appropriate agent.",
+    description="Investment Assistant",
     instruction=ROOT_AGENT_INSTRUCTION,
     sub_agents=[
-        intent_agent
+        intent_agent,response_formatter_agent
     ]
 )
